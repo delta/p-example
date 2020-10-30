@@ -1,0 +1,14 @@
+{
+  "name": "p-example",
+  "version": "1.0.0",
+  "description": "Example plugin for the students site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.2"
+  }
+}
