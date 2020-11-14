@@ -8,4 +8,6 @@ function Home() {
     </>
 }
 
-export default Object.assign(Home, { layout: "main-content-layout" });
+Object.assign(Home, { layout: "dashboard-layout" });
+
+export default Home;

@@ -8,13 +8,13 @@ class GeneralController {
     public apiRouter = Router(); // Put API Routes into this router
     public userRouter = Router(); // Put User Routes into this router
     public adminRouter = Router(); // Put Admin Routes into this router
-    private pluginPath: string; // Base prefix of where to look for plugin pages (/plugins/plugin-name/)
+    private pagePrefix: string; // Base prefix of where to look for plugin pages (/plugins/plugin-name/)
     private nextApp: NextApplication; // Root next app, passed to constructor
 
     private readonly logger = logger.getNamedLogger("Plugin [Example] / Controller [General]");
 
-    constructor({ pluginPath, nextApp }) {
-        this.pluginPath = pluginPath;
+    constructor({ pagePrefix, nextApp }) {
+        this.pagePrefix = pagePrefix;
         this.nextApp = nextApp;
 
         this.initialiseRoutes();
@@ -39,15 +39,15 @@ class GeneralController {
     };
 
     private renderIndex = (req: Request, res: Response, next: NextFunction) => {
-        return this.nextApp.render(req, res, `${this.pluginPath}${this.path}`, req.params);
+        return this.nextApp.render(req, res, `${this.pagePrefix}${this.path}`, req.params);
     }
 
     private renderAbout = (req: Request, res: Response, next: NextFunction) => {
-        return this.nextApp.render(req, res, `${this.pluginPath}${this.path}/about`, req.params);
+        return this.nextApp.render(req, res, `${this.pagePrefix}${this.path}/about`, req.params);
     }
 
     private renderDynamic = (req: Request, res: Response, next: NextFunction) => {
-        return this.nextApp.render(req, res, `${this.pluginPath}${this.path}/dynamic`, req.params);
+        return this.nextApp.render(req, res, `${this.pagePrefix}${this.path}/dynamic`, req.params);
     }
 }
 

@@ -33,4 +33,6 @@ function About() {
     </>
 }
 
+Object.assign(About, { layout: "dashboard-layout" });
+
 export default About
