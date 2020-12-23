@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export default ({ displayName, pagePrefix, path }) => {
+export default ({ name, displayName, pagePrefix, path }) => {
 	return (req: Request, res: Response, next: NextFunction) => {
 		const routes = {
 			displayName,
@@ -27,7 +27,7 @@ export default ({ displayName, pagePrefix, path }) => {
 		}
 
 		// @ts-ignore
-		req.routes.push(routes);
+		req.routes[name] = routes;
 		next();
 	}
 }
