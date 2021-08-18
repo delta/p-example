@@ -4,6 +4,8 @@ import GeneralController from "./controllers/general.controller";
 
 import ExampleMiddleware from "./middleware/example.middleware";
 
+import FormValidationMiddleware from "./middleware/formvalidation.middleware";
+
 import ExampleRoutes from "./middleware/example.routes";
 
 const controllerClasses = [
@@ -11,7 +13,14 @@ const controllerClasses = [
 ]
 
 const middleware = [
-    ExampleMiddleware
+    {
+        'path': '/',
+        'middleware': ExampleMiddleware
+    },
+    {
+        'path': '/form/submit',
+        'middleware': FormValidationMiddleware
+    }
 ]
 
 const routes = ExampleRoutes

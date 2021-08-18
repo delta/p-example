@@ -1,6 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
 import NextApplication from "next/dist/next-server/server/next-server";
-
 import logger from "utils/helpers/logger";
 
 class GeneralController {
@@ -25,6 +24,8 @@ class GeneralController {
         this.userRouter.get(``, this.renderIndex);
         this.userRouter.get(`/about`, this.renderAbout);
         this.userRouter.get('/dynamic/:foo', this.renderDynamic);
+        this.userRouter.get('/form', this.renderForm);
+        this.userRouter.post('/form/submit', this.submitForm);
     }
 
     private getStatus = (req: Request, res: Response, next: NextFunction) => {
@@ -48,6 +49,16 @@ class GeneralController {
 
     private renderDynamic = (req: Request, res: Response, next: NextFunction) => {
         return this.nextApp.render(req, res, `${this.pagePrefix}${this.path}/dynamic`, req.params);
+    }
+
+    private renderForm = (req: Request, res: Response, next: NextFunction) => {
+        return this.nextApp.render(req, res, `${this.pagePrefix}${this.path}/form`, req.params);
+    }
+
+    private submitForm = (req: Request, res: Response, next: NextFunction) => {
+        return res
+            .status(200)
+            .jsonp({ status: 200, success: true, message: "Validation Success" });
     }
 }
 
