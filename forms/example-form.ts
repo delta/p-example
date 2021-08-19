@@ -1,4 +1,4 @@
-export const formSchema = {
+const formSchema = {
     "title": "A registration form",
     "description": "A simple form example.",
     "type": "object",
@@ -24,7 +24,7 @@ export const formSchema = {
     }
 }
 
-export const uiSchema = {
+const uiSchema = {
     "firstName": {
         "ui:autofocus": true,
         "ui:emptyValue": "",
@@ -56,7 +56,14 @@ export const uiSchema = {
     }
 }
 
-export const initialFormData = {
+const initialFormData = {
     "firstName": "Chuck",
     "lastName": "Norris",
+}
+
+export const formProps = {
+    'formSchema': formSchema,
+    'uiSchema': uiSchema,
+    'initialFormData': initialFormData,
+    'submitUrl': 'form/submit'
 }
