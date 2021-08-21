@@ -3,6 +3,7 @@ import config from 'config';
 import GeneralController from "./controllers/general.controller";
 
 import ExampleMiddleware from "./middleware/example.middleware";
+import GlobalMiddleware from "./middleware/example.globalmiddleware";
 
 import { formProps } from "./forms/example-form";
 
@@ -15,7 +16,13 @@ const controllerClasses = [
 const middleware = [
     {
         'path': '/',
-        'middleware': ExampleMiddleware
+        'middleware': ExampleMiddleware,
+        'global': false
+    },
+    {
+        'path': '/',
+        'middleware': GlobalMiddleware,
+        'global': true
     }
 ]
 
