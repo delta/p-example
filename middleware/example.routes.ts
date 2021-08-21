@@ -22,6 +22,11 @@ export default ({ displayName, pagePrefix, path }) => {
 					name: "Dynamic",
 					page: "/dynamic",
 					href: "/dynamic"
+				},
+				{
+					name: "Form",
+					page: "/form",
+					href: "/form"
 				}
 			]
 		}
